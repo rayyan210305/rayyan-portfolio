@@ -2,6 +2,20 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 
+declare global {
+  interface Window {
+    google?: {
+      translate?: {
+        TranslateElement: {
+          InlineLayout: { SIMPLE: number };
+          new (options: object, container: string): void;
+        };
+      };
+    };
+    googleTranslateElementInit?: () => void;
+  }
+}
+
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
@@ -14,7 +28,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const langRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -74,6 +90,34 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (!langOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [langOpen]);
+
+  const switchLang = (lang: string) => {
+    setLangOpen(false);
+    const frame = document.querySelector(
+      "iframe.goog-te-menu-frame"
+    ) as HTMLIFrameElement | null;
+    if (!frame) return;
+    const body = frame.contentDocument?.body;
+    if (!body) return;
+    const items = body.querySelectorAll<HTMLElement>("[lang]");
+    for (const item of items) {
+      if (item.getAttribute("lang") === lang) {
+        item.click();
+        break;
+      }
+    }
+  };
+
   const linkClass = (href: string) => {
     const id = href.replace("#", "");
     const isActive = activeSection === id;
@@ -101,6 +145,34 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+
+          {/* Language toggle */}
+          <div ref={langRef} className="relative">
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="text-xs font-mono text-white/50 hover:text-white border border-white/10 hover:border-accent/30 rounded-full px-3 py-1.5 transition-all duration-200"
+              aria-label="Switch language"
+              aria-expanded={langOpen}
+            >
+              {langOpen ? "🌐" : "ID"}
+            </button>
+            {langOpen && (
+              <div className="absolute right-0 top-full mt-2 py-1 min-w-[80px] rounded-lg glass border border-white/10 z-50">
+                <button
+                  onClick={() => switchLang("id")}
+                  className="block w-full text-left px-3 py-1.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                >
+                  ID
+                </button>
+                <button
+                  onClick={() => switchLang("en")}
+                  className="block w-full text-left px-3 py-1.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                >
+                  EN
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         <button

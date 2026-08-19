@@ -15,6 +15,7 @@ const featuredProject = {
   description:
     "Sistem absensi digital berbasis barcode & QR code untuk Lomba Perkemahan Pramuka Pesantren (LP3) Putra XVII 2026, Satuan Komunitas Gerakan Pramuka Aceh. Peserta di-scan via kamera, QR di-generate otomatis, dan kehadiran tercatat real-time.",
   tags: ["QR Code", "Barcode Scanner", "HTML/CSS", "JavaScript", "Node.js"],
+  image: "/projects/lp3-pramuka.svg",
   githubUrl: "https://github.com/rayyan210305/pramuka-attendance-2026",
   demoUrl: "https://pramuka-attendance-2026.vercel.app",
 };
@@ -25,6 +26,7 @@ const otherProjects = [
     description:
       "Website portfolio pribadi dengan desain modern menggunakan Three.js, glass morphism, dan visualisasi 3D network.",
     tags: ["Next.js", "Three.js", "Tailwind"],
+    image: "/projects/portfolio.svg",
     githubUrl: "https://github.com/rayyan210305/rayyan-portfolio",
     demoUrl: "https://rayyan-portfolio-nu.vercel.app",
   },

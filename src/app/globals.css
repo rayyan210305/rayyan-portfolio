@@ -66,3 +66,23 @@ body {
   background: var(--glass-hover);
   border-color: rgba(167, 139, 250, 0.2);
 }
+
+/* Google Translate: hide default bar, keep only our toggle */
+#google_translate_element {
+  display: none !important;
+}
+.skiptranslate,
+.goog-te-banner-frame,
+body .goog-te-banner-frame,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+#goog-gt-tt {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+}
+body {
+  top: 0 !important;
+}
