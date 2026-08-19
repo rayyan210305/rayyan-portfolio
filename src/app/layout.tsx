@@ -62,6 +62,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className={`${inter.variable} ${jetbrains.variable}`}>
+      <head>
+        <meta name="theme-color" content="#0A0A0F" />
+      </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         <AnimationProvider>{children}</AnimationProvider>
       </body>
