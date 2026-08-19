@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Template - Farid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+        
+        .header .subtitle {
+            font-size: 16px;
+            color: #a78bfa;
+            font-weight: 300;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            font-size: 12px;
+            color: #ccc;
+        }
+        
+        .contact-item strong {
+            color: #a78bfa;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #1a1a2e;
+            border-bottom: 2px solid #a78bfa;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .summary {
+            font-size: 14px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .experience-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #a78bfa;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        
+        .experience-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .experience-period {
+            font-size: 12px;
+            color: #888;
+            font-style: italic;
+        }
+        
+        .experience-company {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .experience-desc {
+            font-size: 13px;
+            color: #555;
+        }
+        
+        .experience-desc ul {
+            margin-left: 20px;
+        }
+        
+        .experience-desc li {
+            margin-bottom: 5px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .skill-category h4 {
+            font-size: 14px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #555;
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .education-degree {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .education-school {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .education-period {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        .project-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .project-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+        
+        .project-tech {
+            font-size: 12px;
+            color: #a78bfa;
+            margin-bottom: 8px;
+        }
+        
+        .project-desc {
+            font-size: 13px;
+            color: #555;
+        }
+        
+        .placeholder {
+            color: #999;
+            font-style: italic;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Nama Lengkap Anda</h1>
+            <div class="subtitle">Network & Web Engineer</div>
+            <div class="contact-info">
+                <div class="contact-item"><strong>Email:</strong> your@email.com</div>
+                <div class="contact-item"><strong>Phone:</strong> +62 xxx xxxx xxxx</div>
+                <div class="contact-item"><strong>Location:</strong> Jakarta, Indonesia</div>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item"><strong>LinkedIn:</strong> linkedin.com/in/yourprofile</div>
+                <div class="contact-item"><strong>GitHub:</strong> github.com/yourusername</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- SUMMARY -->
+            <div class="section">
+                <h2 class="section-title">Profil</h2>
+                <p class="summary">
+                    <span class="placeholder">[Tulis 2-3 kalimat tentang diri Anda, fokus ke keahlian dan tujuan karir]</span>
+                    <br><br>
+                    Contoh: Aspiring Network & Web Engineer dengan pemahaman kuat dalam TCP/IP, routing, dan switching. Berpengalaman membangun web application menggunakan React dan Node.js. Passionate tentang network automation dan cloud infrastructure.
+                </p>
+            </div>
+            
+            <!-- EXPERIENCE -->
+            <div class="section">
+                <h2 class="section-title">Pengalaman Kerja</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Network Engineering Intern</span>
+                        <span class="experience-period">Jan 2024 - Jun 2024</span>
+                    </div>
+                    <div class="experience-company">Tech Company XYZ</div>
+                    <div class="experience-desc">
+                        <ul>
+                            <li>Assisted in managing enterprise network infrastructure</li>
+                            <li>Configured routers, switches, and firewalls</li>
+                            <li>Participated in network troubleshooting and optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">Freelance Web Developer</span>
+                        <span class="experience-period">2023 - Present</span>
+                    </div>
+                    <div class="experience-company">Self-Employed</div>
+                    <div class="experience-desc">
+                        <ul>
+                            <li>Built responsive web applications for clients</li>
+                            <li>Implemented RESTful APIs and third-party integrations</li>
+                            <li>Delivered projects on time with high satisfaction</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <span class="experience-title">IT Support Specialist</span>
+                        <span class="experience-period">Jul 2023 - Dec 2023</span>
+                    </div>
+                    <div class="experience-company">Company ABC</div>
+                    <div class="experience-desc">
+                        <ul>
+                            <li>Provided technical support for internal users</li>
+                            <li>Managed Active Directory, DNS, and DHCP services</li>
+                            <li>Resolved hardware and software issues</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PROJECTS -->
+            <div class="section">
+                <h2 class="section-title">Projects</h2>
+                
+                <div class="project-item">
+                    <div class="project-name">Network Monitoring Dashboard</div>
+                    <div class="project-tech">React, D3.js, WebSocket</div>
+                    <div class="project-desc">Real-time network traffic visualization with interactive charts and performance metrics tracking.</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-name">REST API Gateway</div>
+                    <div class="project-tech">Node.js, Express, Docker</div>
+                    <div class="project-desc">Microservices API gateway with rate limiting, authentication, and load balancing.</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-name">CLI Network Scanner</div>
+                    <div class="project-tech">Python, asyncio</div>
+                    <div class="project-desc">Fast network discovery and port scanning tool for concurrent operations.</div>
+                </div>
+            </div>
+            
+            <!-- SKILLS -->
+            <div class="section">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Bash</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Frameworks</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Networking</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">TCP/IP</span>
+                            <span class="skill-tag">DNS</span>
+                            <span class="skill-tag">DHCP</span>
+                            <span class="skill-tag">BGP</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Cisco IOS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EDUCATION -->
+            <div class="section">
+                <h2 class="section-title">Pendidikan</h2>
+                <div class="education-item">
+                    <div class="education-degree">S.Kom - Teknik Informatika</div>
+                    <div class="education-school">Universitas Indonesia</div>
+                    <div class="education-period">Agu 2019 - Jul 2023 | IPK: 3.75</div>
+                </div>
+            </div>
+            
+            <!-- CERTIFICATIONS -->
+            <div class="section">
+                <h2 class="section-title">Sertifikasi</h2>
+                <div class="education-item">
+                    <div class="education-degree">CCNA 200-301</div>
+                    <div class="education-school">Cisco</div>
+                    <div class="education-period">Maret 2024</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-degree">AWS Cloud Practitioner</div>
+                    <div class="education-school">Amazon Web Services</div>
+                    <div class="education-period">2023</div>
+                </div>
+            </div>
+            
+            <!-- LANGUAGES -->
+            <div class="section">
+                <h2 class="section-title">Bahasa</h2>
+                <div class="skill-tags">
+                    <span class="skill-tag">Indonesia (Native)</span>
+                    <span class="skill-tag">English (Intermediate)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

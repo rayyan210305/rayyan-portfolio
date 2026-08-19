@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "active_work_id": "animations-content",
+  "works": {
+    "projects-section-lp3": {
+      "work_id": "projects-section-lp3",
+      "active_plan": ".omo/plans/projects-section-lp3.md",
+      "plan_name": "projects-section-lp3",
+      "session_ids": [],
+      "status": "completed",
+      "worktree_path": null
+    },
+    "animations-content": {
+      "work_id": "animations-content",
+      "active_plan": ".omo/plans/animations-content.md",
+      "plan_name": "animations-content",
+      "session_ids": [],
+      "status": "active",
+      "worktree_path": null
+    }
+  }
+}
