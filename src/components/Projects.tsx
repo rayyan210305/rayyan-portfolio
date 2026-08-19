@@ -25,7 +25,8 @@ const otherProjects = [
     description:
       "Website portfolio pribadi dengan desain modern menggunakan Three.js, glass morphism, dan visualisasi 3D network.",
     tags: ["Next.js", "Three.js", "Tailwind"],
-    githubUrl: "https://github.com/rayyan210305",
+    githubUrl: "https://github.com/rayyan210305/rayyan-portfolio",
+    demoUrl: "https://rayyan-portfolio-nu.vercel.app",
   },
 ];
 

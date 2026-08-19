@@ -94,13 +94,13 @@ npx vercel --prod
 - **Commit pertama besar** (semua kode + animasi) → wajar, ini initial commit
 
 ## TODO (eksekusi berurutan — ada dependency)
-- [ ] Buat `src/app/icon.svg` + hapus `src/app/favicon.ico`
-- [ ] Buat `src/app/opengraph-image.tsx` (ImageResponse 1200×630)
-- [ ] Edit `layout.tsx` — metadata lengkap (openGraph, twitter, keywords, authors, robots, canonical, metadataBase)
-- [ ] Hapus 5 file scaffold dari `public/`
-- [ ] `npm run build` → PASS
-- [ ] Verifikasi Playwright (icon + meta tags di head, render OK)
-- [ ] `git init` + commit + `gh repo create rayyan-portfolio --public --source . --push`
-- [ ] Deploy Vercel (`npx vercel --prod` atau fallback dashboard)
-- [ ] Verifikasi deploy: curl 200 + og:image reachable
-- [ ] Report ke user (URL publik)
+- [x] Buat `src/app/icon.svg` + hapus `src/app/favicon.ico`
+- [x] Buat `src/app/opengraph-image.tsx` (ImageResponse 1200×630)
+- [x] Edit `layout.tsx` — metadata lengkap (openGraph, twitter, keywords, authors, robots, canonical, metadataBase)
+- [x] Hapus 5 file scaffold dari `public/`
+- [x] `npm run build` → PASS
+- [x] Verifikasi Playwright (icon + meta tags di head, render OK)
+- [x] `git init` + commit + `gh repo create rayyan-portfolio --public --source . --push`
+- [x] Deploy Vercel (`npx vercel --prod` atau fallback dashboard)
+- [x] Verifikasi deploy: curl 200 + og:image reachable
+- [x] Report ke user (URL publik)

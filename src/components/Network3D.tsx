@@ -37,7 +37,7 @@ function Node({
   useFrame((state) => {
     if (meshRef.current) {
       // Subtle pulse effect
-      const pulse = Math.sin(state.clock.elapsedTime * 2) * 0.02 + 1;
+      const pulse = Math.sin(state.clock.getElapsedTime() * 2) * 0.02 + 1;
       meshRef.current.scale.setScalar(scale * pulse);
     }
   });
