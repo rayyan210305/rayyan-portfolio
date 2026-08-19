@@ -64,6 +64,23 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased">
         <AnimationProvider>{children}</AnimationProvider>
       </body>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Rayyan Mardhatillah",
+            jobTitle: "Network & Web Engineer",
+            url: "https://rayyan-portfolio-nu.vercel.app",
+            image: "https://rayyan-portfolio-nu.vercel.app/opengraph-image",
+            sameAs: [
+              "https://github.com/rayyan210305",
+              "https://www.linkedin.com/in/rayyan-mardhatillah-b73b8a42a/",
+            ],
+          }),
+        }}
+      />
     </html>
   );
 }

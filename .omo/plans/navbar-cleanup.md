@@ -52,11 +52,11 @@ Dead code, 0 import — aman dihapus.
 - Kartu portfolio kini punya 2 link (Live Demo + GitHub) → konsisten dengan kartu lain
 
 ## TODO
-- [ ] Rewrite `src/components/Navbar.tsx` (observerRef, cleanup disconnect, Escape, scroll lock, aria-expanded/controls)
-- [ ] Hapus `src/components/GradientMesh.tsx` + `src/components/NodeNetwork.tsx`
-- [ ] Fix `Projects.tsx` — githubUrl → repo, tambah demoUrl → URL live
-- [ ] Fix `Network3D.tsx` — `state.clock.getElapsedTime()`
-- [ ] `npm run build` → PASS
-- [ ] Verifikasi Playwright: mobile menu (Escape + scroll lock + aria-expanded), console 0 warning
-- [ ] Commit + push → auto-deploy
-- [ ] Verifikasi produksi: curl 200
+- [x] Rewrite `src/components/Navbar.tsx` (observerRef, cleanup disconnect, Escape, scroll lock, aria-expanded/controls)
+- [x] Hapus `src/components/GradientMesh.tsx` + `src/components/NodeNetwork.tsx`
+- [x] Fix `Projects.tsx` — githubUrl → repo, tambah demoUrl → URL live
+- [x] Fix `Network3D.tsx` — `state.clock.getElapsedTime()`
+- [x] `npm run build` → PASS
+- [x] Verifikasi Playwright: mobile menu (Escape + scroll lock + aria-expanded), console 0 warning
+- [x] Commit + push → auto-deploy
+- [x] Verifikasi produksi: curl 200
