@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   ],
   creator: "Rayyan Mardhatillah",
   publisher: "Rayyan Mardhatillah",
+  themeColor: "#0A0A0F",
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
   openGraph: {

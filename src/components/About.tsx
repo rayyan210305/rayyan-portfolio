@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   fadeUp,
   fadeIn,
@@ -45,11 +46,15 @@ export default function About() {
           {/* Profile Photo */}
           <motion.div className="relative shrink-0" variants={fadeUp}>
             <div className="w-40 h-40 rounded-2xl glass overflow-hidden">
-              <img
+              <Image
                 src="/profile.jpg"
                 alt="Rayyan Mardhatillah"
+                width={160}
+                height={160}
+                priority
                 className="w-full h-full object-cover"
                 style={{ objectPosition: "50% 15%" }}
+                sizes="160px"
               />
             </div>
             {/* Online indicator */}
