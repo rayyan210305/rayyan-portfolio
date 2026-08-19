@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   fadeUp,
   scaleIn,
@@ -57,9 +58,23 @@ export default function Projects() {
           whileInView="visible"
           viewport={VIEWPORT}
         >
-          <div className="group relative p-8 rounded-2xl glass transition-all duration-300 hover:scale-[1.01] border border-white/5 hover:border-accent/20">
-            {/* Gradient glow on hover */}
+          <div className="group relative rounded-2xl glass overflow-hidden transition-all duration-300 hover:scale-[1.01] border border-white/5 hover:border-accent/20">
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+            {featuredProject.image && (
+              <div className="relative w-full h-56 overflow-hidden">
+                <Image
+                  src={featuredProject.image}
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/20 to-transparent" />
+              </div>
+            )}
+
+            <div className="relative p-8">
 
             {/* Badge */}
             <div className="relative flex items-center gap-2 mb-4">
@@ -119,6 +134,7 @@ export default function Projects() {
                   GitHub →
                 </a>
               )}
+            </div>
             </div>
           </div>
         </motion.div>
