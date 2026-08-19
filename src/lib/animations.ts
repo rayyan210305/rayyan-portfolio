@@ -1,6 +1,6 @@
 import type { Variants } from "framer-motion";
 
-export const VIEWPORT = { once: true, amount: 0.2 } as const;
+export const VIEWPORT = { once: true, amount: 0.1 } as const;
 
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },

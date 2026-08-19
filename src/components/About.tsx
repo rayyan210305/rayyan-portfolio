@@ -35,16 +35,16 @@ export default function About() {
           </h2>
         </motion.div>
 
-        {/* Profile Photo + Bio */}
-        <motion.div
-          className="flex flex-col md:flex-row items-center md:items-start gap-10 mb-12"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VIEWPORT}
-        >
+        {/* Profile Photo + Bio — each animates independently on scroll */}
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-10 mb-12">
           {/* Profile Photo */}
-          <motion.div className="relative shrink-0" variants={fadeUp}>
+          <motion.div
+            className="relative shrink-0"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
+          >
             <div className="w-40 h-40 rounded-2xl glass overflow-hidden">
               <Image
                 src="/profile.jpg"
@@ -65,6 +65,9 @@ export default function About() {
           <motion.div
             className="flex-1 space-y-5 text-white/60 leading-relaxed text-center md:text-left"
             variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT}
           >
             <p>
               Mahasiswa Teknik Komputer yang memiliki ketertarikan pada bidang
@@ -78,7 +81,7 @@ export default function About() {
               Engineer yang mampu membangun sistem yang efektif dan terintegrasi.
             </p>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Skills & Tools Glass Panel */}
         <motion.div
