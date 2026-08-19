@@ -188,7 +188,7 @@ export default async function Image() {
               letterSpacing: 1,
             }}
           >
-            rayyan-portfolio.vercel.app
+            rayyan-portfolio-nu.vercel.app
           </div>
         </div>
       </div>

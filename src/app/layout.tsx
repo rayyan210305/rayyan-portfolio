@@ -14,7 +14,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rayyan-portfolio.vercel.app"),
+  metadataBase: new URL("https://rayyan-portfolio-nu.vercel.app"),
   title: "Rayyan Mardhatillah | Network & Web Engineer",
   description:
     "Portfolio Rayyan Mardhatillah — Mahasiswa Teknik Komputer Universitas Syiah Kuala, Network & Web Engineer. Proyek: LP3 Putra XVII Sistem Absensi QR.",
