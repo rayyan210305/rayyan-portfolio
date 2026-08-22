@@ -68,8 +68,8 @@ export default function Projects() {
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
             <LivePreview
-              url={featuredProject.demoUrl}
-              title="LP3 Pramuka Attendance"
+              url="https://pramuka-attendance-2026.vercel.app/"
+              title="LP3 Pramuka Attendance — Dashboard"
             />
 
             <div className="relative p-8">
