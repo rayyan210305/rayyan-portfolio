@@ -9,7 +9,7 @@ import {
   VIEWPORT,
 } from "@/lib/animations";
 import ProjectCard from "./ProjectCard";
-import LivePreview from "./LivePreview";
+import ImageCarousel from "./ImageCarousel";
 
 const featuredProject = {
   title: "LP3 Putra XVII 2026 — Sistem Absensi QR",
@@ -67,10 +67,7 @@ export default function Projects() {
           <div className="group relative rounded-2xl glass overflow-hidden transition-all duration-300 hover:scale-[1.01] border border-white/5 hover:border-accent/20">
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-            <LivePreview
-              url="https://pramuka-attendance-2026.vercel.app/"
-              title="LP3 Pramuka Attendance — Dashboard"
-            />
+            <ImageCarousel images={featuredProject.images} />
 
             <div className="relative p-8">
               {/* Badge */}
