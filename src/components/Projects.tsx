@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import {
   fadeUp,
   scaleIn,
@@ -10,13 +9,19 @@ import {
   VIEWPORT,
 } from "@/lib/animations";
 import ProjectCard from "./ProjectCard";
+import ImageCarousel from "./ImageCarousel";
 
 const featuredProject = {
   title: "LP3 Putra XVII 2026 — Sistem Absensi QR",
   description:
     "Sistem absensi digital berbasis barcode & QR code untuk Lomba Perkemahan Pramuka Pesantren (LP3) Putra XVII 2026, Satuan Komunitas Gerakan Pramuka Aceh. Peserta di-scan via kamera, QR di-generate otomatis, dan kehadiran tercatat real-time.",
   tags: ["QR Code", "Barcode Scanner", "HTML/CSS", "JavaScript", "Node.js"],
-  image: "/projects/lp3-pramuka.svg",
+  images: [
+    { src: "/projects/lp3-dashboard.png", alt: "Dashboard LP3 — statistik kehadiran & scan log" },
+    { src: "/projects/lp3-scanner.png", alt: "Halaman scanner absensi QR/Barcode" },
+    { src: "/projects/lp3-participants.png", alt: "Data peserta LP3 Putra XVII" },
+    { src: "/projects/lp3-attendance.png", alt: "Histori absensi real-time" },
+  ],
   githubUrl: "https://github.com/rayyan210305/pramuka-attendance-2026",
   demoUrl: "https://pramuka-attendance-2026.vercel.app",
 };
@@ -50,7 +55,7 @@ export default function Projects() {
           </h2>
         </motion.div>
 
-        {/* Featured Project — full width */}
+        {/* Featured Project — full width with carousel */}
         <motion.div
           className="mb-6"
           variants={scaleIn}
@@ -61,80 +66,68 @@ export default function Projects() {
           <div className="group relative rounded-2xl glass overflow-hidden transition-all duration-300 hover:scale-[1.01] border border-white/5 hover:border-accent/20">
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-            {featuredProject.image && (
-              <div className="relative w-full h-56 overflow-hidden">
-                <Image
-                  src={featuredProject.image}
-                  alt=""
-                  fill
-                  sizes="100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/20 to-transparent" />
-              </div>
-            )}
+            <ImageCarousel images={featuredProject.images} />
 
             <div className="relative p-8">
+              {/* Badge */}
+              <div className="relative flex items-center gap-2 mb-4">
+                <span className="text-xs font-mono text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full">
+                  ★ Featured
+                </span>
+              </div>
 
-            {/* Badge */}
-            <div className="relative flex items-center gap-2 mb-4">
-              <span className="text-xs font-mono text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full">
-                ★ Featured
-              </span>
-            </div>
+              {/* Tags */}
+              <motion.div
+                className="relative flex flex-wrap gap-2 mb-4"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT}
+              >
+                {featuredProject.tags.map((tag) => (
+                  <motion.span
+                    key={tag}
+                    variants={staggerItem}
+                    className="text-xs font-mono text-accent/80 bg-accent/10 px-2 py-1 rounded-md"
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
+              </motion.div>
 
-            {/* Tags */}
-            <motion.div
-              className="relative flex flex-wrap gap-2 mb-4"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={VIEWPORT}
-            >
-              {featuredProject.tags.map((tag) => (
-                <motion.span
-                  key={tag}
-                  variants={staggerItem}
-                  className="text-xs font-mono text-accent/80 bg-accent/10 px-2 py-1 rounded-md"
-                >
-                  {tag}
-                </motion.span>
-              ))}
-            </motion.div>
+              {/* Title */}
+              <h3 className="relative text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                {featuredProject.title}
+              </h3>
 
-            {/* Title */}
-            <h3 className="relative text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
-              {featuredProject.title}
-            </h3>
+              {/* Description */}
+              <p className="relative text-white/60 text-sm leading-relaxed mb-6 max-w-2xl">
+                {featuredProject.description}
+              </p>
 
-            {/* Description */}
-            <p className="relative text-white/60 text-sm leading-relaxed mb-6 max-w-2xl">
-              {featuredProject.description}
-            </p>
-
-            {/* Links */}
-            <div className="relative flex items-center gap-4">
-              {featuredProject.demoUrl && (
-                <a
-                  href={featuredProject.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
-                >
-                  Live Demo →
-                </a>
-              )}
-              {featuredProject.githubUrl && (
-                <a
-                  href={featuredProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
-                >
-                  GitHub →
-                </a>
-              )}
-            </div>
+              {/* Links */}
+              <div className="relative flex items-center gap-4">
+                {featuredProject.demoUrl && (
+                  <a
+                    href={featuredProject.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
+                  >
+                    Live Demo →
+                  </a>
+                )}
+                {featuredProject.githubUrl && (
+                  <a
+                    href={featuredProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
+                  >
+                    GitHub →
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </motion.div>
