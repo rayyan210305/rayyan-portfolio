@@ -21,7 +21,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
   if (total === 0) return null;
 
   return (
-    <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden group/carousel">
+    <div className="relative w-full h-[28rem] sm:h-[32rem] md:h-[36rem] overflow-hidden group/carousel select-none">
       {/* Image */}
       <div className="relative w-full h-full">
         {images.map((img, i) => (
@@ -34,7 +34,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
               src={img.src}
               alt={img.alt}
               fill
-              sizes="(max-width: 768px) 100vw, 800px"
+              sizes="(max-width: 768px) 100vw, 900px"
               className="object-cover object-top"
               priority={i === 0}
             />
@@ -43,40 +43,56 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
       </div>
 
       {/* Bottom gradient */}
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/40 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/50 to-transparent pointer-events-none" />
 
-      {/* Navigation arrows */}
+      {/* Caption */}
+      {images[current] && (
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10">
+          <span className="text-xs font-mono text-white/50 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10">
+            {images[current].alt}
+          </span>
+        </div>
+      )}
+
+      {/* Navigation arrows — always visible */}
       {total > 1 && (
         <>
           <button
             onClick={prev}
             aria-label="Previous screenshot"
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 text-white/70 hover:text-white hover:bg-black/70 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-all duration-200"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-white/80 hover:text-white hover:bg-black/80 flex items-center justify-center transition-all duration-200 z-10"
           >
-            ‹
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
           <button
             onClick={next}
             aria-label="Next screenshot"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 text-white/70 hover:text-white hover:bg-black/70 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-all duration-200"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-white/80 hover:text-white hover:bg-black/80 flex items-center justify-center transition-all duration-200 z-10"
           >
-            ›
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
           </button>
         </>
       )}
 
-      {/* Dots */}
+      {/* Dots + counter */}
       {total > 1 && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-3 z-10">
+          <span className="text-[10px] font-mono text-white/40 tabular-nums">
+            {current + 1}/{total}
+          </span>
           {images.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
               aria-label={`Screenshot ${i + 1}`}
-              className={`w-2 h-2 rounded-full transition-all duration-200 ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 i === current
-                  ? "bg-white w-5"
-                  : "bg-white/30 hover:bg-white/50"
+                  ? "bg-accent w-6"
+                  : "bg-white/25 w-2 hover:bg-white/40"
               }`}
             />
           ))}
