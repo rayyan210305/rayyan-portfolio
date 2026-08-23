@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rayyan-portfolio-nu.vercel.app"),
   title: "Rayyan Mardhatillah | Network & Web Engineer",
   description:
-    "Portfolio Rayyan Mardhatillah — Mahasiswa Teknik Komputer Universitas Syiah Kuala, Network & Web Engineer. Proyek: LP3 Putra XVII Sistem Absensi QR.",
+    "Portfolio Rayyan Mardhatillah — Teknik Komputer Universitas Syiah Kuala. Network & Web Engineer. Proyek: LP3 Absensi QR & Smart Kecapi Auto-Tuner Innovillage 2025.",
   keywords: [
     "Rayyan Mardhatillah",
     "Portfolio",
@@ -30,6 +30,8 @@ export const metadata: Metadata = {
     "React",
     "Node.js",
     "QR Absensi",
+    "Innovillage 2025",
+    "Smart Kecapi Auto-Tuner",
   ],
   authors: [
     { name: "Rayyan Mardhatillah", url: "https://github.com/rayyan210305" },
