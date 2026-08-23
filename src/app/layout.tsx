@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import AnimationProvider from "@/components/AnimationProvider";
@@ -36,7 +36,6 @@ export const metadata: Metadata = {
   ],
   creator: "Rayyan Mardhatillah",
   publisher: "Rayyan Mardhatillah",
-  themeColor: "#0A0A0F",
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
   openGraph: {
@@ -56,6 +55,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0A0A0F",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -63,9 +66,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className={`${inter.variable} ${jetbrains.variable}`}>
-      <head>
-        <meta name="theme-color" content="#0A0A0F" />
-      </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         <LanguageProvider>
           <AnimationProvider>{children}</AnimationProvider>
