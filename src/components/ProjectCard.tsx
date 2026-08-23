@@ -30,7 +30,7 @@ export default function ProjectCard({
             sizes="(max-width: 768px) 100vw, 400px"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-transparent to-transparent" />
+          <div className="absolute inset-0 fade-to-bg" />
         </div>
       )}
 
@@ -46,11 +46,11 @@ export default function ProjectCard({
           ))}
         </div>
 
-        <h3 className="relative text-xl font-semibold text-white mb-2 group-hover:text-accent transition-colors">
+        <h3 className="relative text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
           {title}
         </h3>
 
-        <p className="relative text-white/60 text-sm leading-relaxed mb-6">
+        <p className="relative text-muted text-sm leading-relaxed mb-6">
           {description}
         </p>
 
@@ -60,7 +60,7 @@ export default function ProjectCard({
               href={demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
+              className="text-sm text-muted hover:text-foreground transition-colors flex items-center gap-1"
             >
               Live Demo →
             </a>
@@ -70,7 +70,7 @@ export default function ProjectCard({
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
+              className="text-sm text-muted hover:text-foreground transition-colors flex items-center gap-1"
             >
               GitHub →
             </a>

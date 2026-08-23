@@ -16,7 +16,7 @@ export default function LivePreview({ url, title }: LivePreviewProps) {
       {!isLoaded && (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
           <div className="w-8 h-8 border-2 border-accent/40 border-t-accent rounded-full animate-spin" />
-          <span className="text-xs font-mono text-white/40">
+          <span className="text-xs font-mono text-foreground/40">
             Loading live preview…
           </span>
         </div>

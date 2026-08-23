@@ -23,7 +23,7 @@ export default function Education() {
           whileInView="visible"
           viewport={VIEWPORT}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             {t.education.title}
           </h2>
         </motion.div>
@@ -51,19 +51,19 @@ export default function Education() {
 
             {/* Right: Content */}
             <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-1">
+              <h3 className="text-xl font-bold text-foreground mb-1">
                 {t.education.university}
               </h3>
-              <p className="text-white/70 font-medium mb-2">
+              <p className="text-foreground/70 font-medium mb-2">
                 {t.education.major}
               </p>
-              <p className="text-white/60 text-sm leading-relaxed mb-4">
+              <p className="text-muted text-sm leading-relaxed mb-4">
                 {t.education.location}
               </p>
 
               {/* Relevant Coursework */}
               <div>
-                <p className="text-white/80 text-xs font-mono mb-3">
+                <p className="text-foreground/80 text-xs font-mono mb-3">
                   {t.education.coursework}
                 </p>
                 <motion.div

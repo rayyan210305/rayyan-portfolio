@@ -33,7 +33,7 @@ export default function Experience() {
           whileInView="visible"
           viewport={VIEWPORT}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
             {t.experience.title}
           </h2>
         </motion.div>
@@ -41,7 +41,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-surface/10 -translate-x-1/2" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -68,11 +68,11 @@ export default function Experience() {
                     <p className="font-mono text-xs text-accent/90 mb-2">
                       {exp.period}
                     </p>
-                    <h3 className="text-lg font-semibold text-white mb-1">
+                    <h3 className="text-lg font-semibold text-foreground mb-1">
                       {exp.role}
                     </h3>
-                    <p className="text-sm text-white/60 mb-3">{exp.company}</p>
-                    <p className="text-sm text-white/60 leading-relaxed mb-4">
+                    <p className="text-sm text-muted mb-3">{exp.company}</p>
+                    <p className="text-sm text-muted leading-relaxed mb-4">
                       {exp.description}
                     </p>
                     <motion.div

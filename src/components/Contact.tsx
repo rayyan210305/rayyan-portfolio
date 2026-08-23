@@ -51,7 +51,7 @@ export default function Contact() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" />
 
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-6"
+            className="text-3xl sm:text-4xl font-bold text-foreground mb-6"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -61,7 +61,7 @@ export default function Contact() {
           </motion.h2>
 
           <motion.p
-            className="text-white/60 max-w-md mx-auto mb-10"
+            className="text-muted max-w-md mx-auto mb-10"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -83,21 +83,21 @@ export default function Contact() {
               name="name"
               placeholder={t.contact.name}
               required
-              className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-accent/50 focus:bg-white/[0.07] transition-all"
+              className="px-5 py-3.5 rounded-xl bg-surface border border-foreground/10 text-foreground placeholder:text-muted/60 text-sm focus:outline-none focus:border-accent/50 focus:bg-surface-strong transition-all"
             />
             <input
               type="email"
               name="email"
               placeholder={t.contact.email}
               required
-              className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-accent/50 focus:bg-white/[0.07] transition-all"
+              className="px-5 py-3.5 rounded-xl bg-surface border border-foreground/10 text-foreground placeholder:text-muted/60 text-sm focus:outline-none focus:border-accent/50 focus:bg-surface-strong transition-all"
             />
             <textarea
               name="message"
               placeholder={t.contact.message}
               required
               rows={4}
-              className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-accent/50 focus:bg-white/[0.07] transition-all resize-none"
+              className="px-5 py-3.5 rounded-xl bg-surface border border-foreground/10 text-foreground placeholder:text-muted/60 text-sm focus:outline-none focus:border-accent/50 focus:bg-surface-strong transition-all resize-none"
             />
 
             <button
@@ -131,7 +131,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               variants={staggerItem}
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-muted hover:text-foreground transition-colors"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -148,7 +148,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               variants={staggerItem}
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-muted hover:text-foreground transition-colors"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -161,7 +161,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               variants={staggerItem}
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-muted hover:text-foreground transition-colors"
               aria-label="Instagram"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -172,7 +172,7 @@ export default function Contact() {
             <motion.a
               href="mailto:rayyanmardhatillah21@gmail.com"
               variants={staggerItem}
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-muted hover:text-foreground transition-colors"
               aria-label="Email"
             >
               <svg

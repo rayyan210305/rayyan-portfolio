@@ -8,6 +8,7 @@ export const translations = {
     experience: { id: "Pengalaman", en: "Experience" },
     education: { id: "Pendidikan", en: "Education" },
     contact: { id: "Kontak", en: "Contact" },
+    theme: { id: "Ganti tema gelap/terang", en: "Toggle dark/light theme" },
   },
 
   // ── Hero ──

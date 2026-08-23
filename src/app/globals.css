@@ -3,24 +3,48 @@
 :root {
   --background: #0a0a0f;
   --foreground: #f8fafc;
+  --muted: #94a3b8;
   --accent: #a78bfa;
   --accent-secondary: #60a5fa;
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-hover: rgba(255, 255, 255, 0.08);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-strong: rgba(255, 255, 255, 0.07);
+}
+
+html.light {
+  --background: #f6f7fb;
+  --foreground: #1e293b;
+  --muted: #64748b;
+  --accent: #7c3aed;
+  --accent-secondary: #2563eb;
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.85);
+  --surface: rgba(15, 23, 42, 0.04);
+  --surface-strong: rgba(15, 23, 42, 0.06);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-secondary: var(--accent-secondary);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
 }
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
 }
 
 body {
@@ -28,9 +52,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -40,21 +64,19 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(167, 139, 250, 0.3);
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(167, 139, 250, 0.5);
+  background: color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
-/* Selection */
 ::selection {
   background: var(--accent);
   color: white;
 }
 
-/* Glass card base */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
@@ -64,25 +86,14 @@ body {
 
 .glass:hover {
   background: var(--glass-hover);
-  border-color: rgba(167, 139, 250, 0.2);
+  border-color: color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
-/* Google Translate: hide default bar, keep only our toggle */
-#google_translate_element {
-  display: none !important;
-}
-.skiptranslate,
-.goog-te-banner-frame,
-body .goog-te-banner-frame,
-.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
-.VIpgJd-ZVi9od-ORHb-OEVmcd,
-#goog-gt-tt {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  pointer-events: none !important;
-}
-body {
-  top: 0 !important;
+.fade-to-bg {
+  background: linear-gradient(
+    to top,
+    var(--background),
+    color-mix(in srgb, var(--background) 50%, transparent),
+    transparent
+  );
 }

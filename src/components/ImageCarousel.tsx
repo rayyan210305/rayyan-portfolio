@@ -43,7 +43,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
       </div>
 
       {/* Bottom gradient */}
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/50 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-28 fade-to-bg pointer-events-none" />
 
       {/* Caption */}
       {images[current] && (

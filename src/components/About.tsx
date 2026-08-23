@@ -33,7 +33,7 @@ export default function About() {
           whileInView="visible"
           viewport={VIEWPORT}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
             {t.about.title}
           </h2>
         </motion.div>
@@ -66,7 +66,7 @@ export default function About() {
 
           {/* Bio Text */}
           <motion.div
-            className="flex-1 space-y-5 text-white/60 leading-relaxed text-center md:text-left"
+            className="flex-1 space-y-5 text-muted leading-relaxed text-center md:text-left"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -79,7 +79,7 @@ export default function About() {
 
         {/* Skills & Tools Glass Panel */}
         <motion.div
-          className="p-8 rounded-2xl glass border border-white/10"
+          className="p-8 rounded-2xl glass"
           variants={scaleIn}
           initial="hidden"
           whileInView="visible"
@@ -91,7 +91,7 @@ export default function About() {
           <div className="space-y-5">
             {skillGroups.map((group) => (
               <div key={group.label}>
-                <p className="font-mono text-xs text-white/50 mb-2">
+                <p className="font-mono text-xs text-muted/80 mb-2">
                   {group.label}
                 </p>
                 <motion.div
@@ -105,7 +105,7 @@ export default function About() {
                     <motion.span
                       key={skill}
                       variants={staggerItem}
-                      className="px-3 py-1.5 text-xs text-white/70 bg-white/5 border border-white/10 rounded-lg hover:border-accent/30 transition-colors"
+                      className="px-3 py-1.5 text-xs text-foreground/70 bg-surface border border-foreground/10 rounded-lg hover:border-accent/30 transition-colors"
                     >
                       {skill}
                     </motion.span>

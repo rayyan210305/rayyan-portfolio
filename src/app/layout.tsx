@@ -4,6 +4,7 @@ import "./globals.css";
 import AnimationProvider from "@/components/AnimationProvider";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -68,11 +69,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html lang="id" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="min-h-screen bg-background text-foreground antialiased">
-        <LanguageProvider>
-          <AnimationProvider>{children}</AnimationProvider>
-        </LanguageProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <LanguageProvider>
+            <AnimationProvider>{children}</AnimationProvider>
+          </LanguageProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
       <script

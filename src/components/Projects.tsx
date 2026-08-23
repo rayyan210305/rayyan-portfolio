@@ -74,7 +74,7 @@ export default function Projects() {
           whileInView="visible"
           viewport={VIEWPORT}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
             {t.projects.title}
           </h2>
         </motion.div>
@@ -89,7 +89,7 @@ export default function Projects() {
             whileInView="visible"
             viewport={VIEWPORT}
           >
-            <div className="group relative rounded-2xl glass overflow-hidden transition-all duration-300 hover:scale-[1.01] border border-white/5 hover:border-accent/20">
+            <div className="group relative rounded-2xl glass overflow-hidden transition-all duration-300 hover:scale-[1.01] border border-foreground/5 hover:border-accent/20">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               <ImageCarousel images={project.images} />
@@ -122,12 +122,12 @@ export default function Projects() {
                 </motion.div>
 
                 {/* Title */}
-                <h3 className="relative text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                <h3 className="relative text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="relative text-white/60 text-sm leading-relaxed mb-6 max-w-2xl">
+                <p className="relative text-muted text-sm leading-relaxed mb-6 max-w-2xl">
                   {project.description}
                 </p>
 
@@ -138,7 +138,7 @@ export default function Projects() {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
+                      className="text-sm text-muted hover:text-foreground transition-colors flex items-center gap-1"
                     >
                       {project.demoLabel}
                     </a>
@@ -148,7 +148,7 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
+                      className="text-sm text-muted hover:text-foreground transition-colors flex items-center gap-1"
                     >
                       GitHub →
                     </a>
