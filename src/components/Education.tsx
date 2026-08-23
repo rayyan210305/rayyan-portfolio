@@ -8,8 +8,10 @@ import {
   staggerItem,
   VIEWPORT,
 } from "@/lib/animations";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Education() {
+  const { t } = useLanguage();
   return (
     <section id="education" className="py-32 px-6">
       <div className="max-w-4xl mx-auto">
@@ -22,7 +24,7 @@ export default function Education() {
           viewport={VIEWPORT}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-            Academic Background
+            {t.education.title}
           </h2>
         </motion.div>
 
@@ -42,7 +44,7 @@ export default function Education() {
             <div className="flex-shrink-0">
               <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2">
                 <span className="font-mono text-sm text-accent font-medium">
-                  2022 — Present
+                  2023 — Present
                 </span>
               </div>
             </div>
@@ -50,21 +52,19 @@ export default function Education() {
             {/* Right: Content */}
             <div className="flex-1">
               <h3 className="text-xl font-bold text-white mb-1">
-                Universitas Syiah Kuala
+                {t.education.university}
               </h3>
               <p className="text-white/70 font-medium mb-2">
-                Teknik Komputer — Semester 7
+                {t.education.major}
               </p>
               <p className="text-white/60 text-sm leading-relaxed mb-4">
-                Fakultas Teknik, Darussalam — Banda Aceh. Currently focusing on
-                Network Engineering and Web Development with hands-on experience
-                in building real-world projects.
+                {t.education.location}
               </p>
 
               {/* Relevant Coursework */}
               <div>
                 <p className="text-white/80 text-xs font-mono mb-3">
-                  RELEVANT COURSEWORK
+                  {t.education.coursework}
                 </p>
                 <motion.div
                   className="flex flex-wrap gap-2"
@@ -74,12 +74,12 @@ export default function Education() {
                   viewport={VIEWPORT}
                 >
                   {[
-                    "Computer Networks",
-                    "Web Development",
-                    "Database Systems",
-                    "Operating Systems",
-                    "Software Engineering",
-                    "Data Structures",
+                    t.education.courses.computerNetworks,
+                    t.education.courses.webDevelopment,
+                    t.education.courses.databaseSystems,
+                    t.education.courses.operatingSystems,
+                    t.education.courses.softwareEngineering,
+                    t.education.courses.dataStructures,
                   ].map((course) => (
                     <motion.span
                       key={course}

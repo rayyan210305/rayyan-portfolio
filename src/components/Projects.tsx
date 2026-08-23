@@ -10,36 +10,36 @@ import {
 } from "@/lib/animations";
 import ProjectCard from "./ProjectCard";
 import ImageCarousel from "./ImageCarousel";
-
-const featuredProject = {
-  title: "LP3 Putra XVII 2026 — Sistem Absensi QR",
-  description:
-    "Sistem absensi digital berbasis barcode & QR code untuk Lomba Perkemahan Pramuka Pesantren (LP3) Putra XVII 2026, Satuan Komunitas Gerakan Pramuka Aceh. Peserta di-scan via kamera, QR di-generate otomatis, dan kehadiran tercatat real-time.",
-  tags: ["QR Code", "Barcode Scanner", "HTML/CSS", "JavaScript", "Node.js"],
-  images: [
-    { src: "/projects/lp3-login-hq.webp", alt: "Halaman Login Admin — autentikasi PIN untuk akses sistem" },
-    { src: "/projects/lp3-dashboard-hq.webp", alt: "Dashboard LP3 — statistik kehadiran & scan log" },
-    { src: "/projects/lp3-scanner-hq.webp", alt: "Halaman scanner absensi QR/Barcode" },
-    { src: "/projects/lp3-participants-hq.webp", alt: "Data peserta LP3 Putra XVII" },
-    { src: "/projects/lp3-attendance-hq.webp", alt: "Histori absensi real-time" },
-  ],
-  githubUrl: "https://github.com/rayyan210305/pramuka-attendance-2026",
-  demoUrl: "https://pramuka-attendance-2026.vercel.app",
-};
-
-const otherProjects = [
-  {
-    title: "Portfolio Website",
-    description:
-      "Website portfolio pribadi dengan desain modern menggunakan Three.js, glass morphism, dan visualisasi 3D network.",
-    tags: ["Next.js", "Three.js", "Tailwind"],
-    image: "/projects/portfolio.svg",
-    githubUrl: "https://github.com/rayyan210305/rayyan-portfolio",
-    demoUrl: "https://rayyan-portfolio-nu.vercel.app",
-  },
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Projects() {
+  const { t } = useLanguage();
+
+  const featuredProject = {
+    title: t.projects.featuredTitle,
+    description: t.projects.featuredDesc,
+    tags: ["QR Code", "Barcode Scanner", "HTML/CSS", "JavaScript", "Node.js"],
+    images: [
+      { src: "/projects/lp3-login-hq.webp", alt: t.projects.imgLogin },
+      { src: "/projects/lp3-dashboard-hq.webp", alt: t.projects.imgDashboard },
+      { src: "/projects/lp3-scanner-hq.webp", alt: t.projects.imgScanner },
+      { src: "/projects/lp3-participants-hq.webp", alt: t.projects.imgParticipants },
+      { src: "/projects/lp3-attendance-hq.webp", alt: t.projects.imgAttendance },
+    ],
+    githubUrl: "https://github.com/rayyan210305/pramuka-attendance-2026",
+    demoUrl: "https://pramuka-attendance-2026.vercel.app",
+  };
+
+  const otherProjects = [
+    {
+      title: t.projects.portfolioTitle,
+      description: t.projects.portfolioDesc,
+      tags: ["Next.js", "Three.js", "Tailwind"],
+      image: "/projects/portfolio.svg",
+      githubUrl: "https://github.com/rayyan210305/rayyan-portfolio",
+      demoUrl: "https://rayyan-portfolio-nu.vercel.app",
+    },
+  ];
   return (
     <section id="projects" className="py-32 px-6">
       <div className="mx-auto max-w-4xl">
@@ -52,7 +52,7 @@ export default function Projects() {
           viewport={VIEWPORT}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Featured Projects
+            {t.projects.title}
           </h2>
         </motion.div>
 
@@ -73,7 +73,7 @@ export default function Projects() {
               {/* Badge */}
               <div className="relative flex items-center gap-2 mb-4">
                 <span className="text-xs font-mono text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full">
-                  ★ Featured
+                  {t.projects.featured}
                 </span>
               </div>
 
@@ -115,7 +115,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
                   >
-                    Live Demo →
+                    {t.projects.liveDemo}
                   </a>
                 )}
                 {featuredProject.githubUrl && (

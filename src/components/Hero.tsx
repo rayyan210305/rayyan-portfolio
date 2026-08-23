@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import Network3D from "./Network3D";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section
       id="hero"
@@ -38,10 +40,10 @@ export default function Hero() {
           className="mb-4"
         >
           <p className="text-lg md:text-xl text-white/80 font-light">
-            Mahasiswa Teknik Komputer
+            {t.hero.subtitle}
           </p>
           <p className="text-sm text-white/60 mt-1 font-mono">
-            Passionate about network architecture &amp; web engineering
+            {t.hero.tagline}
           </p>
         </motion.div>
 
@@ -64,13 +66,13 @@ export default function Hero() {
             href="#projects"
             className="px-8 py-3 bg-accent/10 border border-accent/30 rounded-full text-sm font-medium text-white hover:bg-accent/20 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10"
           >
-            View My Work ↓
+            {t.hero.viewWork}
           </a>
           <a
             href="#contact"
             className="px-8 py-3 border border-white/10 rounded-full text-sm font-medium text-white/70 hover:text-white hover:border-white/30 transition-all duration-300"
           >
-            Contact Me →
+            {t.hero.contactMe}
           </a>
         </motion.div>
 

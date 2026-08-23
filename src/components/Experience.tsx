@@ -9,29 +9,19 @@ import {
   staggerItem,
   VIEWPORT,
 } from "@/lib/animations";
-
-const experiences = [
-  {
-    id: 1,
-    role: "Ketua Himpunan Mahasiswa Teknik Komputer",
-    company: "Himpunan Mahasiswa Teknik Komputer",
-    period: "2026/2027",
-    description:
-      "Memimpin organisasi mahasiswa Teknik Komputer, mengkoordinasi program kerja, dan memastikan kelancaran kegiatan kemahasiswaan.",
-    tags: ["Leadership", "Organization", "Event Management"],
-  },
-  {
-    id: 2,
-    role: "Wakil Ketua Reuni Cinta Almamater",
-    company: "Fakultas Teknik, Universitas Syiah Kuala",
-    period: "2025",
-    description:
-      "Membantu mempersiapkan dan melaksanakan acara Reuni Cinta Almamater, mengoordinasi tim panitia, serta memastikan acara berjalan lancar.",
-    tags: ["Event Planning", "Team Coordination", "Communication"],
-  },
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Experience() {
+  const { t } = useLanguage();
+  const experiences = t.experience.items.map((item, i) => ({
+    id: i + 1,
+    role: item.role,
+    company: item.company,
+    period: item.period,
+    description: item.description,
+    tags: item.tags,
+  }));
+
   return (
     <section id="experience" className="py-32 px-6">
       <div className="mx-auto max-w-4xl">
@@ -44,7 +34,7 @@ export default function Experience() {
           viewport={VIEWPORT}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Experience
+            {t.experience.title}
           </h2>
         </motion.div>
 

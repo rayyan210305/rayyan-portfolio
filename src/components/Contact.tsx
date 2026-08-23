@@ -9,10 +9,12 @@ import {
   staggerItem,
   VIEWPORT,
 } from "@/lib/animations";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mnpalvje";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
@@ -55,7 +57,7 @@ export default function Contact() {
             whileInView="visible"
             viewport={VIEWPORT}
           >
-            Let&apos;s Connect
+            {t.contact.title}
           </motion.h2>
 
           <motion.p
@@ -65,8 +67,7 @@ export default function Contact() {
             whileInView="visible"
             viewport={VIEWPORT}
           >
-            I&apos;m always interested in new opportunities, collaborations, or
-            just a friendly chat about technology.
+            {t.contact.subtitle}
           </motion.p>
 
           <motion.form
@@ -80,20 +81,20 @@ export default function Contact() {
             <input
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder={t.contact.name}
               required
               className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-accent/50 focus:bg-white/[0.07] transition-all"
             />
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={t.contact.email}
               required
               className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-accent/50 focus:bg-white/[0.07] transition-all"
             />
             <textarea
               name="message"
-              placeholder="Message"
+              placeholder={t.contact.message}
               required
               rows={4}
               className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:border-accent/50 focus:bg-white/[0.07] transition-all resize-none"
@@ -105,15 +106,15 @@ export default function Contact() {
               className="w-full py-3.5 rounded-full bg-accent/90 hover:bg-accent text-white font-medium text-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {status === "sending"
-                ? "Sending..."
+                ? t.contact.sending
                 : status === "sent"
-                  ? "Sent! ✓"
-                  : "Send Message"}
+                  ? t.contact.sent
+                  : t.contact.send}
             </button>
 
             {status === "error" && (
               <p className="text-red-400 text-xs text-center mt-1">
-                Failed to send. Try again or email me directly.
+                {t.contact.error}
               </p>
             )}
           </motion.form>

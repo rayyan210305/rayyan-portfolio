@@ -10,15 +10,18 @@ import {
   staggerItem,
   VIEWPORT,
 } from "@/lib/animations";
-
-const skillGroups = [
-  { label: "Languages", skills: ["JavaScript", "Python", "HTML/CSS"] },
-  { label: "Web Development", skills: ["React", "Node.js"] },
-  { label: "Networking", skills: ["TCP/IP", "Network Configuration"] },
-  { label: "Tools", skills: ["Git", "Linux"] },
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+
+  const skillGroups = [
+    { label: t.about.skillGroups.languages, skills: ["JavaScript", "Python", "HTML/CSS"] },
+    { label: t.about.skillGroups.webDev, skills: ["React", "Node.js"] },
+    { label: t.about.skillGroups.networking, skills: ["TCP/IP", "Network Configuration"] },
+    { label: t.about.skillGroups.tools, skills: ["Git", "Linux"] },
+  ];
+
   return (
     <section id="about" className="py-32 px-6">
       <div className="mx-auto max-w-4xl">
@@ -31,7 +34,7 @@ export default function About() {
           viewport={VIEWPORT}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            About Me
+            {t.about.title}
           </h2>
         </motion.div>
 
@@ -69,17 +72,8 @@ export default function About() {
             whileInView="visible"
             viewport={VIEWPORT}
           >
-            <p>
-              Mahasiswa Teknik Komputer yang memiliki ketertarikan pada bidang
-              networking dan web development. Saat ini saya terus mengembangkan
-              kemampuan dalam membangun sistem berbasis web, memahami
-              infrastruktur jaringan, serta memanfaatkan AI sebagai tools untuk
-              membantu proses development dan pembelajaran.
-            </p>
-            <p>
-              Saya memiliki tujuan untuk berkembang menjadi Network &amp; Web
-              Engineer yang mampu membangun sistem yang efektif dan terintegrasi.
-            </p>
+            <p>{t.about.bio1}</p>
+            <p>{t.about.bio2}</p>
           </motion.div>
         </div>
 
@@ -92,7 +86,7 @@ export default function About() {
           viewport={VIEWPORT}
         >
           <h3 className="font-mono text-sm text-accent/80 tracking-wider uppercase mb-6">
-            Skills &amp; Tools
+            {t.about.skillsTitle}
           </h3>
           <div className="space-y-5">
             {skillGroups.map((group) => (

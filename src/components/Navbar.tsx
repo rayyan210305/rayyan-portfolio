@@ -1,36 +1,24 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-
-declare global {
-  interface Window {
-    google?: {
-      translate?: {
-        TranslateElement: {
-          InlineLayout: { SIMPLE: number };
-          new (options: object, container: string): void;
-        };
-      };
-    };
-    googleTranslateElementInit?: () => void;
-  }
-}
-
-const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
-];
+import { useLanguage, type Lang } from "@/lib/LanguageContext";
 
 export default function Navbar() {
+  const { lang, setLang, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const langRef = useRef<HTMLDivElement | null>(null);
+
+  const navLinks = [
+    { href: "#about", label: t.nav.about },
+    { href: "#projects", label: t.nav.projects },
+    { href: "#experience", label: t.nav.experience },
+    { href: "#education", label: t.nav.education },
+    { href: "#contact", label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -64,7 +52,7 @@ export default function Navbar() {
 
     headings.forEach((el) => observer.observe(el));
     observerRef.current = observer;
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     setActiveSection("about");
@@ -101,21 +89,9 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", onClick);
   }, [langOpen]);
 
-  const switchLang = (lang: string) => {
+  const switchLang = (l: Lang) => {
+    setLang(l);
     setLangOpen(false);
-    const frame = document.querySelector(
-      "iframe.goog-te-menu-frame"
-    ) as HTMLIFrameElement | null;
-    if (!frame) return;
-    const body = frame.contentDocument?.body;
-    if (!body) return;
-    const items = body.querySelectorAll<HTMLElement>("[lang]");
-    for (const item of items) {
-      if (item.getAttribute("lang") === lang) {
-        item.click();
-        break;
-      }
-    }
   };
 
   const linkClass = (href: string) => {
@@ -154,22 +130,23 @@ export default function Navbar() {
               aria-label="Switch language"
               aria-expanded={langOpen}
             >
-              {langOpen ? "🌐" : "ID"}
+              {langOpen ? "🌐" : lang.toUpperCase()}
             </button>
             {langOpen && (
               <div className="absolute right-0 top-full mt-2 py-1 min-w-[80px] rounded-lg glass border border-white/10 z-50">
-                <button
-                  onClick={() => switchLang("id")}
-                  className="block w-full text-left px-3 py-1.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
-                >
-                  ID
-                </button>
-                <button
-                  onClick={() => switchLang("en")}
-                  className="block w-full text-left px-3 py-1.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
-                >
-                  EN
-                </button>
+                {(["id", "en"] as Lang[]).map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => switchLang(l)}
+                    className={`block w-full text-left px-3 py-1.5 text-sm transition-colors ${
+                      lang === l
+                        ? "text-accent font-medium"
+                        : "text-white/70 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    {l.toUpperCase()}
+                  </button>
+                ))}
               </div>
             )}
           </div>
@@ -216,6 +193,22 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            {/* Mobile language toggle */}
+            <div className="pt-2 border-t border-white/10 flex gap-3">
+              {(["id", "en"] as Lang[]).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => switchLang(l)}
+                  className={`text-xs font-mono px-3 py-1.5 rounded-full border transition-all ${
+                    lang === l
+                      ? "text-accent border-accent/30 bg-accent/10"
+                      : "text-white/50 border-white/10 hover:border-accent/30"
+                  }`}
+                >
+                  {l.toUpperCase()}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       )}

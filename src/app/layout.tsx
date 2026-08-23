@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import AnimationProvider from "@/components/AnimationProvider";
+import { LanguageProvider } from "@/lib/LanguageContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -66,18 +67,10 @@ export default function RootLayout({
         <meta name="theme-color" content="#0A0A0F" />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
-        <div id="google_translate_element" />
-        <AnimationProvider>{children}</AnimationProvider>
+        <LanguageProvider>
+          <AnimationProvider>{children}</AnimationProvider>
+        </LanguageProvider>
       </body>
-      <script
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-        async
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'id',autoDisplay:false,layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element')}`,
-        }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
