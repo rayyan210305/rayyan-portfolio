@@ -14,7 +14,7 @@ export const translations = {
   hero: {
     subtitle: { id: "Mahasiswa Teknik Komputer", en: "Computer Engineering Student" },
     tagline: {
-      id: "Passionate about network architecture & web engineering",
+      id: "Berpengalaman mendalami arsitektur jaringan & rekayasa web",
       en: "Passionate about network architecture & web engineering",
     },
     viewWork: { id: "Lihat Proyek Saya ↓", en: "View My Work ↓" },
