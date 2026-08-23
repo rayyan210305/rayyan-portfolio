@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import AnimationProvider from "@/components/AnimationProvider";
 import { LanguageProvider } from "@/lib/LanguageContext";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -72,6 +73,7 @@ export default function RootLayout({
         <LanguageProvider>
           <AnimationProvider>{children}</AnimationProvider>
         </LanguageProvider>
+        <Analytics />
       </body>
       <script
         type="application/ld+json"
