@@ -84,6 +84,7 @@ export default function RootLayout({
             sameAs: [
               "https://github.com/rayyan210305",
               "https://www.linkedin.com/in/rayyan-mardhatillah-b73b8a42a/",
+              "https://www.instagram.com/rayyanmardhatillah/",
             ],
           }),
         }}
