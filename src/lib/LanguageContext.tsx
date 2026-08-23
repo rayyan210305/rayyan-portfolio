@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, useMemo, type ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useMemo, useEffect, type ReactNode } from "react";
 import { translations, type Lang } from "./i18n";
 
 type TranslationLeaf = { readonly id: string; readonly en: string };
@@ -41,9 +41,22 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("id");
 
+  useEffect(() => {
+    const stored = window.localStorage.getItem("lang");
+    if (stored === "en") {
+      setLangState("en");
+      document.documentElement.lang = "en";
+    } else if (!stored && window.navigator.language?.toLowerCase().startsWith("en")) {
+      setLangState("en");
+      document.documentElement.lang = "en";
+      window.localStorage.setItem("lang", "en");
+    }
+  }, []);
+
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
     document.documentElement.lang = l;
+    window.localStorage.setItem("lang", l);
   }, []);
 
   const t = useMemo(() => resolve(translations, lang) as Translations, [lang]);
