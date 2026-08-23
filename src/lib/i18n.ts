@@ -119,6 +119,17 @@ export const translations = {
       en: "Real-time attendance history",
     },
     liveDemo: { id: "Demo Langsung →", en: "Live Demo →" },
+    // featured project 2: Smart Kecapi Auto-Tuner (Innovillage 2025)
+    kecapiTitle: "Smart Kecapi Auto-Tuner — Innovillage 2025",
+    kecapiDesc: {
+      id: "Alat penyetem kecapi otomatis berbasis Arduino bagi musisi tradisional tunarungu & tunanetra di Museum Aceh — program sosial Innovillage 2025 dengan tema disabilitas. Frekuensi senar dideteksi sensor piezo, hasil tuning ditampilkan lewat indikator visual, suara, dan getaran, lalu disetem presisi oleh motor servo. Menjangkau 30 penerima manfaat langsung bersama tim EMPRUYY ESPROTT.",
+      en: "Arduino-based automatic kecapi tuner for deaf & blind traditional musicians at Museum Aceh — Innovillage 2025 social program with a disability theme. String frequencies are detected via piezo sensors, tuning results shown through visual, audio, and vibration indicators, then precisely tuned by a servo motor. Reached 30 direct beneficiaries with team EMPRUYY ESPROTT.",
+    },
+    kecapiImgAlt: {
+      id: "Smart Kecapi Auto-Tuner — video dokumentasi Innovillage 2025",
+      en: "Smart Kecapi Auto-Tuner — Innovillage 2025 documentation video",
+    },
+    kecapiDemoLabel: { id: "Tonton Video →", en: "Watch Video →" },
     // other projects
     portfolioTitle: "Portfolio Website",
     portfolioDesc: {
