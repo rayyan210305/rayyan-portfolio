@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -132,14 +132,52 @@ function NetworkScene() {
   );
 }
 
+function useScenePaused(wrapRef: React.RefObject<HTMLDivElement | null>) {
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => {
+      if (mq.matches || document.hidden) {
+        setPaused(true);
+        return;
+      }
+      const el = wrapRef.current;
+      if (!el) {
+        setPaused(false);
+        return;
+      }
+      const r = el.getBoundingClientRect();
+      setPaused(r.bottom <= 0 || r.top >= window.innerHeight);
+    };
+    sync();
+    window.addEventListener("scroll", sync, { passive: true });
+    document.addEventListener("visibilitychange", sync);
+    mq.addEventListener("change", sync);
+    window.addEventListener("resize", sync);
+    return () => {
+      window.removeEventListener("scroll", sync);
+      document.removeEventListener("visibilitychange", sync);
+      mq.removeEventListener("change", sync);
+      window.removeEventListener("resize", sync);
+    };
+  }, [wrapRef]);
+
+  return paused;
+}
+
 // Main exported component
 export default function Network3D() {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const paused = useScenePaused(wrapRef);
+
   return (
-    <div className="absolute inset-0 -z-10">
+    <div ref={wrapRef} className="absolute inset-0 -z-10">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
         style={{ background: "transparent" }}
         dpr={[1, 1.5]}
+        frameloop={paused ? "demand" : "always"}
         gl={{ antialias: true, alpha: true }}
       >
         <NetworkScene />

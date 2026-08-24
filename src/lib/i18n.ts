@@ -139,6 +139,15 @@ export const translations = {
     },
   },
 
+  // ── 404 ──
+  notFound: {
+    message: {
+      id: "Halaman yang kamu cari tidak ditemukan atau sudah dipindahkan.",
+      en: "The page you're looking for doesn't exist or has been moved.",
+    },
+    back: { id: "← Kembali ke Beranda", en: "← Back to Home" },
+  },
+
   // ── Contact ──
   contact: {
     title: { id: "Mari Terhubung", en: "Let's Connect" },
