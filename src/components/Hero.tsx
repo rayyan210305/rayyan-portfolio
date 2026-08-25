@@ -75,23 +75,23 @@ export default function Hero() {
             {t.hero.contactMe}
           </a>
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <div className="w-5 h-8 border border-foreground/20 rounded-full flex justify-center pt-2">
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1 h-1 bg-muted/70 rounded-full"
-            />
-          </div>
-        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.4 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      >
+        <div className="w-5 h-8 border border-foreground/20 rounded-full flex justify-center pt-2">
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-1 h-1 bg-muted/70 rounded-full"
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }
